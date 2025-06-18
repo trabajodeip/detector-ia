@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detector de IA - Prototipo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    input[type="file"] {
+      margin: 20px 0;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Detector de Inteligencia Artificial</h1>
+  <p>Sube un archivo para analizar si fue generado con IA</p>
+  
+  <input type="file" id="archivo">
+  <br>
+  <button onclick="analizar()">Analizar</button>
+  
+  <div id="resultado"></div>
+
+  <script>
+    function analizar() {
+      const archivo = document.getElementById('archivo').files[0];
+      const resultado = document.getElementById('resultado');
+
+      if (!archivo) {
+        resultado.innerHTML = "Por favor, sube un archivo.";
+        resultado.style.color = "red";
+        return;
+      }
+
+      // Esto es solo una simulación para el prototipo
+      const nombresSimulados = ["Trabajo generado por IA", "Trabajo original humano", "Uso parcial de IA detectado"];
+      const aleatorio = Math.floor(Math.random() * nombresSimulados.length);
+      resultado.style.color = "green";
+      resultado.innerHTML = "Resultado: " + nombresSimulados[aleatorio];
+    }
+  </script>
+</body>
+</html>
